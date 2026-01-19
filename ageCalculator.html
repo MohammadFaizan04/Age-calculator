@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: rgba(127, 255, 212, 0.363);
+      display: flex;
+      font-family: "Times New Roman", Times, serif;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    #formid {
+      border: 3px solid rgb(0, 255, 170);
+      border-radius: 10px;
+      background-color: aquamarine;
+      box-shadow: 0px 0px 10px rgb(20, 241, 168);
+      padding: 20px 20px;
+      overflow: hidden;
+      animation: formAnimation .8s ease;
+    }
+
+    #heading {
+      background-color: rgb(0, 255, 170);
+      box-shadow: 0 0 5px rgb(0, 255, 170);
+      margin-bottom: 40px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    #heading h1 {
+      font-size: 1.6rem;
+      word-spacing: 0.5rem;
+      font-weight: bold;
+      padding: 0px 15px;
+      /* text-shadow: 2px 2px 5px ; */
+      animation: h3color 5s ease infinite;
+    }
+
+    #hidden {
+      display: none;
+    }
+
+    #ar1 h3 {
+      background-color: rgb(53, 255, 188);
+      box-shadow: 0 0 5px rgb(0, 255, 170);
+      color: rgb(0, 53, 0);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      word-spacing: 0.3rem;
+      font-weight: bolder;
+      padding: 5px;
+      border-radius: 10px;
+    }
+
+    .form {
+      padding: 10px;
+      background-color: rgb(51, 255, 187);
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgb(0, 255, 170);
+    }
+
+    .input-section {
+      padding: auto;
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+    }
+
+    .input-section input {
+      background-color: rgba(255, 255, 255, 0.6);
+      margin: 5px;
+      padding: 10px 10px 10px 30px;
+      border: none;
+      border-radius: 99px;
+      color: rgb(43, 43, 43);
+      font-size: 15px;
+      font-weight: bold;
+      transition: 0.3s ease;
+      outline: none;
+      letter-spacing: 1px;
+    }
+
+    .input-section input:hover {
+      background-color: rgba(201, 201, 201, 0.377);
+      border: none;
+    }
+
+    .input-section input::placeholder {
+      color: rgba(58, 58, 58, 0.852);
+    }
+
+    .btn-section {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: auto;
+    }
+
+    .btn-section button {
+      background-color: #007fff;
+      font-size: 15px;
+      font-weight: bold;
+      width: 40%;
+      color: rgba(255, 255, 255, 0.863);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 99px;
+      transition: all .3s ease;
+      box-shadow: 0px 0px 2px black;
+
+    }
+
+    .btn-section button:hover {
+      background-color: rgb(0, 80, 184);
+      transform: translateY(-2px);
+      cursor: pointer;
+      color: white;
+    }
+    .btn-section button:active {
+      transform: scale(.9);
+    }
+
+    #ar2 #pm {
+      background-color: rgb(34, 255, 181);
+      margin: 20px auto;
+      height: 110px;
+      padding: 5px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgb(0, 255, 170);
+      font-size: 17px;
+      font-weight: bold;
+      transition: 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: rgb(41, 41, 41);
+      line-height: 1.3rem;
+    }
+
+    #resultSpan {
+      animation: formAnimation .8s ease;
+    }
+
+    #faizan {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      font-size: 12px;
+      opacity: .5;
+    }
+
+    @media only screen and (max-width: 556px) {
+      #formid {
+        height: 100vh;
+        width: 100vw;
+      }
+
+      #hidden {
+        display: flex;
+        height: 15vh;
+        width: 100%;
+        margin: auto;
+      }
+
+      #pm {
+        height: auto;
+      }
+    }
+
+    @keyframes formAnimation {
+      0% {
+        opacity: 0;
+        transform: scale(.5);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes h3color {
+      0% {
+        color: #4d0000;
+      }
+
+      50% {
+        color: rgb(0, 78, 34);
+      }
+
+      100% {
+        color: #4d0000;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <section id="formid">
+    <div id="heading">
+      <h1>Age Calculator</h1>
+    </div>
+    <div id="hidden"></div>
+
+    <article id="ar1">
+      <h3>Fill Your Date of Birth</h3>
+      <form action="index.html" method="get" class="form">
+        <section class="input-section">
+          <label for="day"> </label>
+          <input type="number" name="day" id="day" class="input" placeholder="Enter Birth Date : 1" />
+          <label for="date"> </label>
+          <input type="number" name="month" class="input" id="month" placeholder="Enter Birth Month : 1" />
+          <label for="date"> </label>
+          <input type="number" name="year" id="year" class="input" placeholder="Enter Birth Year : 2001" />
+        </section>
+        <section id="button" class="btn-section">
+
+          <button class="btn " id="subbtn">Calculate</button>
+          <button class="btn" id="clearbtn">clear</button>
+        </section>
+      </form>
+    </article>
+    <article id="ar2">
+      <div id="pm"></div>
+    </article>
+  </section>
+
+  <div id="faizan">Faizan</div>
+
+
+  <script>
+
+    document.getElementById("subbtn").addEventListener("click", (e) => {
+      e.preventDefault()
+
+      let result = document.getElementById("pm")
+
+      let bd = Number.parseInt(document.getElementById("day").value) || 1;
+      let bm = Number.parseInt(document.getElementById("month").value) || 1
+      let by = Number.parseInt(document.getElementById("year").value) || 2001
+      // console.log(bd, bm, by)
+
+      if (
+        !bd ||
+        !bm ||
+        !by ||
+        bd < 0 ||
+        bm < 0 ||
+        by > new Date().getFullYear()
+      ) {
+        result.innerHTML = `<span id="resultSpan">Invalid Birth Date  😑 </span>`
+        return;
+      }
+      const today = new Date()
+      const birthDate = new Date(by, bm - 1, bd)
+      // console.log(today)
+      // console.log(birthDate)
+      if (birthDate > today) {
+
+        result.innerHTML = `<span id="resultSpan">Invalid Birth Date  😑 </span>`
+        return;
+      }
+      let rd = today.getDay() - birthDate.getDay()
+      let rm = today.getMonth() - birthDate.getMonth()
+      let ry = today.getFullYear() - birthDate.getFullYear();
+      // console.log(rd, rm, ry)
+      if (rd < 0) {
+        rm--;
+        rd += new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          0
+        ).getDate()
+      }
+
+      if (rm < 0) {
+        ry--;
+        rm += 12;
+      }
+
+
+      result.innerHTML = `<div id="resultSpan">
+                   <span> 🎉 You are 🎉 </span>
+                    <div> <span> ${rd} Days </span>
+                      <span> ${rm} Months </span>
+                      <span> ${ry} years </span> 
+                      </div> </div>`
+    })
+
+
+    document.getElementById("clearbtn").addEventListener("click", (e) => {
+      e.preventDefault()
+      document.getElementById("pm").innerHTML = ``
+      document.getElementById("day").value = null
+      document.getElementById("month").value = null
+      document.getElementById("year").value = null
+    })
+
+
+  </script>
+</body>
+
+</html>
